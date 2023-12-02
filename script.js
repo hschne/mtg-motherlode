@@ -25,31 +25,33 @@ async function processData(data) {
 
   const view = Object.entries(groups)
     .map(([name, cards]) => {
-      console.log(cards);
       return [
         name,
         cards.sort((a, b) => parseFloat(b.price) - parseFloat(a.price)),
       ];
     })
+    .sort((a, b) => {
+      console.log(a[1][0]);
+      return new Date(b[1][0].released_at) - new Date(a[1][0].released_at);
+    })
     .map(([name, cards]) => {
       return `
-      <h2>${name}</h2>
-      <ul>
-      ${cards.map((card) => renderCard(card)).join(",")}
+      <div class="set-item">
+      <h2 class="set-title">${name}</h2>
+      <ul class="card-list">
+        ${cards.map((card) => renderCard(card)).join(" ")}
       </ul>
+      <div>
       `;
-    })
-    .join(",");
+    });
 
   results.innerHTML = view;
 }
 
 function renderCard(card) {
-  return `<li>
-       <h3>${card.name}</h3>
-       <img src="${card.imgSrc}"/>
-       <p>${card.prices.eur}</p>
-       <p>${card.set_name}</p>
+  return `<li class="card-item">
+       <img class="card-image" src="${card.imgSrc}"/>
+       <p class="card-price">${card.prices.eur}</p>
     </li>`;
 }
 
