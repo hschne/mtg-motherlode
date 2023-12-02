@@ -51,14 +51,32 @@ body {
   gap: 0.8rem;
   padding: 0.5rem;
   width: 100%;
+  overflow: hidden;
   height: 100%;
   object-fit: cover;
+  position: relative;
 }
 
 .card-price {
   font-weight: 500;
   font-size: 1.8rem;
   color: #333;
+
+  position: absolute;
+  top: 6%;
+  right: -18%;
+
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  transform: rotate(45deg);
+}
+
+.pricing-plan--complete::after {
+  content: "Best value";
 }
 
 .card-image {
