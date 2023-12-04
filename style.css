@@ -29,6 +29,40 @@ body {
   color: var(--c-white);
 
   overflow-x: hidden;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+
+  opacity: 10%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-black);
+  /* https://codepen.io/carpenumidium/pen/JYboza */
+  background-image: linear-gradient(
+      25deg,
+      transparent 65%,
+      var(--c-yellow),
+      transparent 70%
+    ),
+    linear-gradient(-25deg, transparent 65%, var(--c-yellow), transparent 70%),
+    linear-gradient(-25deg, transparent 30%, var(--c-yellow), transparent 35%),
+    linear-gradient(25deg, transparent 30%, var(--c-yellow), transparent 35%),
+    linear-gradient(65deg, transparent 65%, var(--c-yellow), transparent 70%),
+    linear-gradient(-65deg, transparent 65%, var(--c-yellow), transparent 70%),
+    linear-gradient(-65deg, transparent 30%, var(--c-yellow), transparent 35%),
+    linear-gradient(65deg, transparent 30%, var(--c-yellow), transparent 35%);
+  background-size:
+    5em 2em,
+    5em 2em,
+    5em 2em,
+    5em 2em,
+    2em 5em,
+    2em 5em,
+    2em 5em,
+    2em 5em;
 }
 
 .container {
@@ -43,7 +77,6 @@ body {
 
   height: 9.6rem;
   padding: 0 2rem;
-  position: relative;
 }
 
 .header-link {
@@ -57,6 +90,41 @@ body {
   border-radius: 1000px;
 }
 
+.github-corner {
+  fill: var(--c-yellow);
+  color: var(--c-black);
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+
 .hero {
   width: 100%;
   min-height: 60vh;
@@ -64,6 +132,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding: 4rem 0;
 }
 
@@ -151,4 +220,50 @@ body {
 .card-image {
   width: 100%;
   height: 100%;
+}
+
+.footer {
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2rem;
+  color: var(--c-yellow);
+}
+
+.footer-link:link,
+.footer-link:visited {
+  color: var(--c-yellow);
+}
+
+.footer-icon-link:link,
+.footer-icon-link:visited {
+  text-decoration: none;
+  color: var(--c-yellow);
+}
+
+.footer-social {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 100em) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 44em) {
+  html {
+    font-size: 50%;
+  }
+
+  .card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 34em) {
 }
