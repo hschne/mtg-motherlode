@@ -11,7 +11,8 @@ async function processData(data) {
   const results = document.getElementById("result");
   let groups = data
     .map((card) => {
-      const imgSrc = card.image_uris?.png || card.card_faces[0].image_uris.png;
+      const imgSrc =
+        card.image_uris?.normal || card.card_faces[0].image_uris.normal;
       const price = card.prices.eur;
       return { ...card, price: price, imgSrc: imgSrc };
     })
@@ -48,9 +49,10 @@ async function processData(data) {
 }
 
 function renderCard(card) {
-  return `<li class="card-item">
+  return `
+  <li class="card-item">
        <img class="card-image" src="${card.imgSrc}"/>
-       <p class="card-price">${card.prices.eur}</p>
+       <p class="card-price">${card.prices.eur}€</p>
     </li>`;
 }
 
