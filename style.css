@@ -204,6 +204,7 @@ body {
   top: 7%;
   right: -25%;
 
+  text-align: center;
   text-transform: uppercase;
   font-size: 1.6rem;
   font-weight: 700;
@@ -263,7 +264,9 @@ body {
   .card-list {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 34em) {
+  .card-price {
+    top: 7%;
+    right: -30%;
+  }
 }
